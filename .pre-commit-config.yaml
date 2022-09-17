@@ -1,17 +1,10 @@
 repos:
-# -   repo: https://github.com/psf/black
-#     rev: stable
-#     hooks:
-#     - id: black
-#       language_version: python3.7.7
-
 # isort
 - repo: https://github.com/pycqa/isort
   rev: 5.10.1
   hooks:
     - id: isort
       name: Isort
-    
 # black
 - repo: https://github.com/ambv/black
   rev: stable

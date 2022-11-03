@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import RouterPage from "./RouterPage";
 
 
 export default class App extends Component {
@@ -8,10 +9,7 @@ export default class App extends Component {
   }
 
   render() {
-    return (
-      <div>
-            <h1> siema1dddd1111</h1>
-      </div>
+    return ( <RouterPage />
     );
   }
 }

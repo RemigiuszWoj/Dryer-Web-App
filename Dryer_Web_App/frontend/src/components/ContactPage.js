@@ -9,6 +9,15 @@ export default class ContactPage extends Component {
       return (
         <div>
               <p>Contact</p>
+              <p>Contact</p>
+
+              <p>Contact</p>
+              <p>Contact</p>
+              <p>Contact</p>
+              <p>Contact</p>
+              <p>Contact</p>
+              <p>Contact</p>
+
         </div>
       );
     }

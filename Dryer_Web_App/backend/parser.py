@@ -63,12 +63,14 @@ def type_to_csv(model: str) -> int:
 
 
 def preper_workers_data(data_set: list) -> dict:
-    output = {"LP": [],
-              "IMIE": [],
-              "NAZWISKO": [],
-              "UMIEJETNOSC_1": [],
-              "UMIEJETNOSC_2": [],
-              "UMIEJETNOSC_3": []}
+    output = {
+        "LP": [],
+        "IMIE": [],
+        "NAZWISKO": [],
+        "UMIEJETNOSC_1": [],
+        "UMIEJETNOSC_2": [],
+        "UMIEJETNOSC_3": [],
+    }
 
     for data in data_set:
         output["LP"].append(str(data.lp))
@@ -103,12 +105,14 @@ def PARS_WORKERS(data_set: list):
 
 
 def preper_orders_data(data_set: list) -> dict:
-    output = {"LP": [],
-              "NAZWA_FIRMY": [],
-              "NAZWISKO": [],
-              "MODEL": [],
-              "created_ad": [],
-              "host": []}
+    output = {
+        "LP": [],
+        "NAZWA_FIRMY": [],
+        "NAZWISKO": [],
+        "MODEL": [],
+        "created_ad": [],
+        "host": [],
+    }
 
     for data in data_set:
         output["LP"].append(str(data.id))

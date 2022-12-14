@@ -1,9 +1,9 @@
 import csv
+
+import backend.algorithm as algorithm
 import backend.parser as parser
 import backend.preproces_data as preproces_data
-import backend.algorithm as algorithm
-
-from api.models import Worker, Order
+from api.models import Order, Worker
 
 
 def manin() -> None:
@@ -19,21 +19,18 @@ def manin() -> None:
 
     # initial_db()
 
-
-# def make_harmonogram(sequence, NB, dyer_number):
+    # def make_harmonogram(sequence, NB, dyer_number):
     workers = Worker.objects.all()
     workers_data = parser.PARS_WORKERS(data_set=workers)
     wokrers_list = parser.preper_woreks(workers_data=workers_data)
 
     orders_list = Order.objects.all()
     G_list = preproces_data.generate_full_graph_list(orders_list=orders_list)
-    G = preproces_data.create_G(G_list=G_list,
-                                sequence=sequence,
-                                nb=NB[dyer_number])
+    G = preproces_data.create_G(G_list=G_list, sequence=sequence, nb=NB[dyer_number])
     ord = G.TOP_ORDER()
-    C_best_sw, best_Cmax_sw, best_ord_sw = algorithm.ds(ord=ord,
-                                                        Graph=G,
-                                                        workers_list=wokrers_list)
+    C_best_sw, best_Cmax_sw, best_ord_sw = algorithm.ds(
+        ord=ord, Graph=G, workers_list=wokrers_list
+    )
     print(C_best_sw, best_Cmax_sw, best_ord_sw)
 
 
@@ -56,5 +53,6 @@ def initial_workers(path: str = "backend/workers.csv") -> None:
                 surname=row[2],
                 utility_1=row[3],
                 utility_2=row[4],
-                utility_3=row[5])
+                utility_3=row[5],
+            )
             worker.save()

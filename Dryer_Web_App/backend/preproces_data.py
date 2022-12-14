@@ -1,5 +1,5 @@
-import backend.parser as parser
 import backend.graph as graph
+import backend.parser as parser
 
 
 def load_orders(orders_list: list) -> list:
@@ -14,18 +14,19 @@ def make_orders_list(orders) -> list:
         orders_list.append(orders[i]["MODEL"])
     return orders_list
 
-# def generate_full_graph():
-    # orders = load_orders()
-    # orders_list = make_orders_list(orders=orders)
 
-    # GP = graph.CGraph(np=0)
-    # job = 1
-    # for model in orders_list:
-    #     G = parser.PARSOWANIE_DANYCH(
-    #         path =model, nr_job = job)
-    #     GP.mergeGraf(G1=G)
-    #     job += 1
-    # return GP
+# def generate_full_graph():
+# orders = load_orders()
+# orders_list = make_orders_list(orders=orders)
+
+# GP = graph.CGraph(np=0)
+# job = 1
+# for model in orders_list:
+#     G = parser.PARSOWANIE_DANYCH(
+#         path =model, nr_job = job)
+#     GP.mergeGraf(G1=G)
+#     job += 1
+# return GP
 
 
 def generate_full_graph_list(orders_list: list):
@@ -39,6 +40,7 @@ def generate_full_graph_list(orders_list: list):
         G_list.append(G)
         job += 1
     return G_list
+
 
 # def test_graph():
 #     GP = graph.CGraph(np=0)
@@ -61,6 +63,6 @@ def generate_full_graph_list(orders_list: list):
 
 def create_G(G_list, sequence, nb):
     GP = graph.CGraph(np=0)
-    for i in range(1, nb+1):
-        GP.mergeGraf(G1=G_list[sequence[i]-1])
+    for i in range(1, nb + 1):
+        GP.mergeGraf(G1=G_list[sequence[i] - 1])
     return GP

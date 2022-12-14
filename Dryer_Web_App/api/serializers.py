@@ -8,7 +8,7 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = (
             "id",
-            "code",
+            # "code",
             "host",
             "orderer_name",
             "orderer_surname",

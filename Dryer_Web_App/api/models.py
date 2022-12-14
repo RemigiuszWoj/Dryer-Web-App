@@ -14,7 +14,7 @@ def generate_unique_code():
 
 
 class Order(models.Model):
-    code = models.CharField(max_length=8, default=generate_unique_code, unique=True)
+    # code = models.CharField(max_length=8, default=generate_unique_code, unique=True)
     host = models.CharField(max_length=50, unique=True)
     orderer_name = models.CharField(max_length=20, default="Jan")
     orderer_surname = models.CharField(max_length=20, default="Nowak")

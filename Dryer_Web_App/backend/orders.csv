@@ -1,9 +1,9 @@
-LP;NAZWA_FIRMY;MODEL;
-1;WIMich;dryer_35_t;
-2;CelZac;dryer_20_t;
-3;JedFarm;dryer_20_t;
-4;Galazkas;dryer_50_t;
-5;Grabix;dryer_35_t;
-6;HubKacz;dryer_50_t;
-7;Trzmielex;dryer_20_t;
-8;MarFarm;dryer_20_t;
+LP;CODE;NAZWA_FIRMY;Surname;MODEL;DATE;HOST;DAY_TO_BUILD
+1;AAAAAA;WIMich;-;dryer_20_t;2022-12-31 00:00:00;AAAAAA;0
+2;AAAAAB;CelZac;-;dryer_20_t;2022-12-31 00:00:01;AAAAAB;0
+3;AAAAAC;Grabix;-;dryer_20_t;2022-12-31 00:00:02;AAAAAC;0
+4;AAAAAD;WIMich;-;dryer_20_t;2022-12-31 00:00:03;AAAAAD;0
+5;AAAAAE;CelZac;-;dryer_20_t;2022-12-31 00:00:04;AAAAAE;0
+6;AAAAAE;Grabix;-;dryer_20_t;2022-12-31 00:00:05;AAAAAE;0
+7;AAAAAF;WIMich;-;dryer_20_t;2022-12-31 00:00:06;AAAAAF;0
+8;AAAAAG;CelZac;-;dryer_20_t;2022-12-31 00:00:07;AAAAAG;0

@@ -155,30 +155,7 @@ def insert_nbr(Graph, workers_list, ord):
     for i in range(1, len(ord)):
         for j in range(i + 1, len(ord)):
             move_elem(l=ord, oldindex=i, newindex=j)
-            if IS_TOP(pi=ord, Graph=Graph) == False: # noqa
-                move_elem(l=ord, oldindex=j, newindex=i)
-                break
-            else:
-                a1 = 0
-                C1, max_C1 = 0, 0
-
-                a1 = easy_asign(Graph=Graph, workers=workers_list)
-
-                C1, max_C1 = c_max2(m=len(workers_list),
-                                    workers=workers_list,
-                                    Graph=Graph,
-                                    a=a1,
-                                    pi=ord)
-
-                if best_max_C > max_C1:
-                    best_max_C = max_C1
-                    best_C = C1
-                    best_ord = copy.deepcopy(ord)
-
-                move_elem(l=ord, oldindex=j, newindex=i)
-        for j in range(i - 1, 1, -1):
-            move_elem(l=ord, oldindex=i, newindex=j)
-            if IS_TOP(pi=ord, Graph=Graph) == False: # noqa
+            if IS_TOP(pi=ord, Graph=Graph) is False:
                 move_elem(l=ord, oldindex=j, newindex=i)
                 break
             else:
@@ -188,7 +165,28 @@ def insert_nbr(Graph, workers_list, ord):
                 a1 = easy_asign(Graph=Graph, workers=workers_list)
 
                 C1, max_C1 = c_max2(
-                    m=len(workers_list), workers=workers_list, Graph=Graph, a=a1, pi=ord # noqa
+                    m=len(workers_list), workers=workers_list, Graph=Graph, a=a1, pi=ord
+                )
+
+                if best_max_C > max_C1:
+                    best_max_C = max_C1
+                    best_C = C1
+                    best_ord = copy.deepcopy(ord)
+
+                move_elem(l=ord, oldindex=j, newindex=i)
+        for j in range(i - 1, 1, -1):
+            move_elem(l=ord, oldindex=i, newindex=j)
+            if IS_TOP(pi=ord, Graph=Graph) is False:
+                move_elem(l=ord, oldindex=j, newindex=i)
+                break
+            else:
+                a1 = 0
+                C1, max_C1 = 0, 0
+
+                a1 = easy_asign(Graph=Graph, workers=workers_list)
+
+                C1, max_C1 = c_max2(
+                    m=len(workers_list), workers=workers_list, Graph=Graph, a=a1, pi=ord
                 )
 
                 if best_max_C > max_C1:
@@ -214,24 +212,19 @@ def insert_rand(Graph, workers_list, ord):
 
     best_ord = copy.deepcopy(ord)
     i = random.randint(1, len(ord) - 1)
-    # print(i)
-    # print(len(ord))
     for j in range(i + 1, len(ord)):
-        # print("i: ",i,"j: ",j)
         move_elem(l=ord, oldindex=i, newindex=j)
-        if IS_TOP(pi=ord, Graph=Graph) == False: # noqa
+        if IS_TOP(pi=ord, Graph=Graph) is False:
             move_elem(l=ord, oldindex=j, newindex=i)
-            # print("1")
             break
         else:
-            # print("TRUE")
             a1 = 0
             C1, max_C1 = 0, 0
 
             a1 = easy_asign(Graph=Graph, workers=workers_list)
 
             C1, max_C1 = c_max2(
-                m=len(workers_list), workers=workers_list, Graph=Graph, a=a1, pi=ord # noqa
+                m=len(workers_list), workers=workers_list, Graph=Graph, a=a1, pi=ord
             )
 
             if best_max_C > max_C1:
@@ -242,7 +235,7 @@ def insert_rand(Graph, workers_list, ord):
             move_elem(l=ord, oldindex=j, newindex=i)
     for j in range(i - 1, 1, -1):
         move_elem(l=ord, oldindex=i, newindex=j)
-        if IS_TOP(pi=ord, Graph=Graph) == False: # noqa
+        if IS_TOP(pi=ord, Graph=Graph) == False:  # noqa
             move_elem(l=ord, oldindex=j, newindex=i)
             # print("2")
             break
@@ -253,7 +246,7 @@ def insert_rand(Graph, workers_list, ord):
             a1 = easy_asign(Graph=Graph, workers=workers_list)
 
             C1, max_C1 = c_max2(
-                m=len(workers_list), workers=workers_list, Graph=Graph, a=a1, pi=ord # noqa
+                m=len(workers_list), workers=workers_list, Graph=Graph, a=a1, pi=ord
             )
 
             if best_max_C > max_C1:
@@ -276,8 +269,6 @@ def ds(ord, Graph, workers_list):
             NX = best_max_C
         else:
             break
-        # print("best_max_C: ", best_max_C)
-
     return best_C, best_max_C, best_ord
 
 
@@ -288,11 +279,8 @@ def random_serge(ord, Graph, workers_list):
         best_C, best_max_C, best_ord = insert_rand(
             Graph=Graph, workers_list=workers_list, ord=best_ord
         )
-        # print("i: ",i)
-        # print("best_max_C: ",best_max_C)
         if best_max_C < NX:
             NX = best_max_C
-            # print("best_max_C: ", best_max_C)
     return best_C, best_max_C, best_ord
 
 
@@ -305,20 +293,20 @@ def symulowane_wyzazanie(pi, Graph, workers_list):
     m = len(workers_list)
     a0 = easy_asign(Graph=Graph, workers=workers_list)
 
-    C0_best, Cmax_best = c_max2(m=m, workers=workers_list, Graph=Graph, a=a0, pi=pi) # noqa
+    C0_best, Cmax_best = c_max2(m=m, workers=workers_list, Graph=Graph, a=a0, pi=pi)
 
     best_pi = []
     best_pi = copy.deepcopy(pi)
     while t > tk:
         l1 = random.randint(1, n)
         l2 = random.randint(1, n)
-        C_tmp0, max_tmp0 = c_max2(m=m, workers=workers_list, Graph=Graph, a=a0, pi=pi) # noqa
+        C_tmp0, max_tmp0 = c_max2(m=m, workers=workers_list, Graph=Graph, a=a0, pi=pi)
         move_elem(l=pi, oldindex=l1, newindex=l2)
-        if IS_TOP(pi=pi, Graph=Graph) == False: # noqa
+        if IS_TOP(pi=pi, Graph=Graph) is False:
             move_elem(l=pi, oldindex=l2, newindex=l1)
             continue
         else:
-            C_tmp, max_tmp = c_max2(m=m, workers=workers_list, Graph=Graph, a=a0, pi=pi) # noqa
+            C_tmp, max_tmp = c_max2(m=m, workers=workers_list, Graph=Graph, a=a0, pi=pi)
             if max_tmp < Cmax_best:
                 C0_best = C_tmp
                 Cmax_best = max_tmp
@@ -328,9 +316,11 @@ def symulowane_wyzazanie(pi, Graph, workers_list):
                 delta = max_tmp - max_tmp0
                 P = math.exp(-delta / t)
                 Z = random.random()
-                if Z <= P:
-                    i = 0 # noqa
-                else:
+                # if Z <= P:
+                #     i = 0
+                # else:
+                #     move_elem(l=pi, oldindex=l2, newindex=l1)
+                if Z > P:
                     move_elem(l=pi, oldindex=l2, newindex=l1)
         t = lam * t
     best_order = copy.deepcopy(best_pi)
